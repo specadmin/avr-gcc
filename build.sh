@@ -2,7 +2,7 @@
 
 
 PREFIX_DIR="${HOME}/avr-gcc/usr"
-NUM_THREADS=4
+NUM_THREADS=`nproc`
 
 #GCC_VERSION="4.8.0"
 #GCC_VERSION="5.1.0"

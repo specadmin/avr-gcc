@@ -1,6 +1,6 @@
 #!/bin/bash
 
-${NUM_THREADS}=4
+NUM_THREADS=`nproc`
 
 #GMP_VER="4.3.2"
 GMP_VER="6.1.0"
@@ -20,7 +20,7 @@ echo "Building GCC infrastructure"
 IFS_DIR="gcc-infrastructure"
 mkdir ${IFS_DIR}
 cd ${IFS_DIR}
-#apt-get install libgmp-dev libmpfr-dev libmpc-dev
+apt-get install gcc g++ make zlib1g-dev libgmp-dev libmpfr-dev libmpc-dev
 echo "--> libisl"
 if [ ! -f isl-${ISL_VER}.tar.bz2 ]; then
 $WGET_CMD ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-${ISL_VER}.tar.bz2
