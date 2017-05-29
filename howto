@@ -1,0 +1,21 @@
+
+I had the same problem cross-compiling for mips.
+
+Step one: Cross-compile the binutils for your target. Install them somewhere sane. I use /usr/local/[target]-gcc
+
+Make sure you configure them with --program-prefix=[target]-
+
+Something like (untested):
+
+configure --prefix=/usr/local/avr-gcc --program-prefix=avr- --target=avr
+Then you need to set up some environment variables so GCC can find them:
+
+export AR_FOR_TARGET=/usr/local/avr-gcc/bin/avr-ar
+export LD_FOR_TARGET=/usr/local/avr-gcc/bin/avr-ld
+export OBJDUMP_FOR_TARGET=/usr/local/avr-gcc/bin/avr-objdump
+export NM_FOR_TARGET=/usr/local/avr-gcc/bin/avr-nm
+export RANLIB_FOR_TARGET=/usr/local/avr-gcc/bin/avr-ranlib
+export READELF_FOR_TARGET=/usr/local/avr-gcc/bin/avr-readelf
+export STRIP_FOR_TARGET=/usr/local/avr-gcc/bin/avr-strip
+export AS_FOR_TARGET=/usr/local/avr-gcc/bin/avr-as
+Now you can configure and compile GCC. Ensure you start from a completely empty build directory, otherwise gcc/as etc won't get recreated.

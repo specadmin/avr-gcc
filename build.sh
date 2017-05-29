@@ -27,6 +27,7 @@ rm -rf $GCC_DIR
 tar -xf $GCC_TAR
 
 echo "Configuring GCC"
+export LD_LIBRARY_PATH=/usr/lib 
 mkdir $GCC_DIR/obj
 cd $GCC_DIR/obj
 ../configure -v \
@@ -45,3 +46,5 @@ cd $GCC_DIR/obj
 --enable-nls \
 --disable-libssp \
 --with-system-zlib 
+
+make -j${NUM_THREADS}
