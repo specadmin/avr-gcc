@@ -25,12 +25,19 @@ echo "Extracting files from BIN arhive"
 rm -rf $BIN_DIR
 tar -xf $BIN_TAR
 
+echo "Applying binutils patches"
+cd ${BIN_DIR}/binutils
+patch < ../../patches/avr-size.patch
+cd ../..
+
 echo "Configuring BIN"
 export LD_LIBRARY_PATH=/usr/lib 
 mkdir $BIN_DIR/obj
 cd $BIN_DIR/obj
 ../configure -v \
 --target=avr \
+--disable-nls \
+--disable-werror \
 --build=x86_64-linux-gnu \
 --host=x86_64-linux-gnu \
 --prefix=${PREFIX_DIR}/lib \
