@@ -35,7 +35,7 @@ rm -rf ${LIB_NAME}-${LIB_VER}
 if [ ! -f /usr/lib/lib${LIB_NAME}.so ]; then
     tar -xf ${LIB_NAME}-${LIB_VER}.tar.${LIB_ARC}
     cd ${LIB_NAME}-${LIB_VER}
-    ./configure --prefix=/usr
+    ./configure --prefix=/usr --disable-shared --enable-static
     make -j${NUM_THREADS} install
     cd ..
 else
@@ -54,7 +54,7 @@ rm -rf ${LIB_NAME}-${LIB_VER}
 if [ ! -f /usr/lib/lib${LIB_NAME}.so ]; then
     tar -xf ${LIB_NAME}-${LIB_VER}.tar.${LIB_ARC}
     cd ${LIB_NAME}-${LIB_VER}
-    ./configure --prefix=/usr
+    ./configure --prefix=/usr --disable-shared --enable-static
     make -j${NUM_THREADS} install
     cd ..
 else
@@ -74,7 +74,7 @@ rm -rf ${LIB_NAME}-${LIB_VER}
 if [ ! -f /usr/lib/lib${LIB_NAME}.so ]; then
     tar -xf ${LIB_NAME}-${LIB_VER}.tar.${LIB_ARC}
     cd ${LIB_NAME}-${LIB_VER}
-    ./configure --prefix=/usr
+    ./configure --prefix=/usr --disable-shared --enable-static
     make -j${NUM_THREADS} install
     cd ..
 else
@@ -94,7 +94,7 @@ rm -rf ${LIB_NAME}-${LIB_VER}
 if [ ! -f /usr/lib/lib${LIB_NAME}.so ]; then
     tar -xf ${LIB_NAME}-${LIB_VER}.tar.${LIB_ARC}
     cd ${LIB_NAME}-${LIB_VER}
-    ./configure --prefix=/usr
+    ./configure --prefix=/usr --disable-shared --enable-static
     make -j${NUM_THREADS} install
     cd ..
 else
