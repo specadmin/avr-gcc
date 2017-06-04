@@ -1,4 +1,4 @@
-gcc-*
-binutils-*
-avr-libc-*
+./gcc-*
+./binutils-*
+./avr-libc-*
 
